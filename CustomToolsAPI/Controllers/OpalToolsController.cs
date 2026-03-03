@@ -7,8 +7,15 @@ namespace CustomToolsAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class OpalToolsController(IWeatherService weatherService) : Controller
+    public class OpalToolsController : Controller
     {
+        private readonly IWeatherService weatherService;
+
+        public OpalToolsController(IWeatherService weatherService)
+        {
+            this.weatherService = weatherService;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {

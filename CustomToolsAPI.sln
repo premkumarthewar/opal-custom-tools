@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomToolsAPI", "CustomToolsAPI.csproj", "{9DFA0C70-4077-48BA-AEBB-9DBC6AAFFBE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomToolsAPI", "CustomToolsAPI\CustomToolsAPI.csproj", "{9DFA0C70-4077-48BA-AEBB-9DBC6AAFFBE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

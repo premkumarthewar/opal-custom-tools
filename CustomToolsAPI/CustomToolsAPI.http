@@ -1,0 +1,6 @@
+@CustomToolsAPI_HostAddress = http://localhost:5064
+
+GET {{CustomToolsAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

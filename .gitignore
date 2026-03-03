@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CustomToolsAPI/.vs
+/CustomToolsAPI/bin/Debug/net8.0
+/CustomToolsAPI/obj
+/CustomToolsAPI/bin/Release/net8.0
+/CustomToolsAPI/CustomToolsAPI.csproj.user
+/CustomToolsAPI/CustomToolsAPI.deps.json
+/CustomToolsAPI/CustomToolsAPI.dll
+/CustomToolsAPI/CustomToolsAPI.exe
+/CustomToolsAPI/CustomToolsAPI.pdb
+/CustomToolsAPI/CustomToolsAPI.runtimeconfig.json
+/CustomToolsAPI/Microsoft.OpenApi.dll
+/CustomToolsAPI/Optimizely.Opal.Tools.dll
+/CustomToolsAPI/Swashbuckle.AspNetCore.Swagger.dll
+/CustomToolsAPI/Swashbuckle.AspNetCore.SwaggerGen.dll
+/CustomToolsAPI/Swashbuckle.AspNetCore.SwaggerUI.dll
+/CustomToolsAPI/Properties/PublishProfiles/FolderProfile.pubxml.user
+/CustomToolsAPI/Properties/PublishProfiles/FolderProfile1.pubxml.user
+/CustomToolsAPI/CustomToolsAPI.staticwebassets.endpoints.json

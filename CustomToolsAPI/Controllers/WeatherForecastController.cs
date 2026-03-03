@@ -6,10 +6,11 @@ namespace CustomToolsAPI.Controllers
     [Route("[controller]")]
     public class WeatherForecastController(ILogger<WeatherForecastController> logger) : ControllerBase
     {
-        private static readonly string[] Summaries =
-        [
+        //Modified the collection expression to fix runtime issues
+        private static readonly string[] Summaries = new[]
+        {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        ];
+        };
 
         private readonly ILogger<WeatherForecastController> _logger = logger;
 

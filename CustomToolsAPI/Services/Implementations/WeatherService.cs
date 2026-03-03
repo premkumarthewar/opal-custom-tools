@@ -4,8 +4,17 @@ using System.Text.Json;
 
 namespace CustomToolsAPI.Services.Implementations
 {
-    public class WeatherService(HttpClient httpClient, IConfiguration configuration) : IWeatherService
+    public class WeatherService : IWeatherService
     {
+        private readonly HttpClient httpClient;
+        private readonly IConfiguration configuration;
+
+        public WeatherService(HttpClient httpClient, IConfiguration configuration)
+        {
+            this.httpClient = httpClient;
+            this.configuration = configuration;
+        }
+
         private static readonly JsonSerializerOptions jsonSerializerOptions = new()
         {
             PropertyNameCaseInsensitive = true

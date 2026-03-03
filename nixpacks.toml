@@ -1,0 +1,15 @@
+[phases.setup]
+nixPkgs = ["dotnet-sdk_8"]
+
+[phases.install]
+cmds = [
+  "dotnet restore CustomToolsAPI/CustomToolsAPI.csproj"
+]
+
+[phases.build]
+cmds = [
+  "dotnet publish CustomToolsAPI/CustomToolsAPI.csproj -c Release -o out"
+]
+
+[start]
+cmd = "dotnet out/CustomToolsAPI.dll"

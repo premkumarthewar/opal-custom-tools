@@ -11,6 +11,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient<IWeatherService, WeatherService>();
+builder.Services.AddHttpClient<IGoogleGeminiService, GoogleGeminiService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 WebApplication app = builder.Build();
 
@@ -27,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-string port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.UseCors("AllowAll");
 
-app.Run($"http://0.0.0.0:{port}");
+app.Run();

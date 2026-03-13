@@ -1,8 +1,0 @@
-[build]
-builder = "NIXPACKS"
-
-[deploy]
-startCommand = "dotnet CustomToolsAPI/bin/Release/net8.0/publish/CustomToolsAPI.dll"
-
-[build.env]
-NIXPACKS_DOTNET_PROJECT = "CustomToolsAPI/CustomToolsAPI.csproj"

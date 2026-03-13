@@ -2,6 +2,8 @@
 using CustomToolsAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Optimizely.Opal.Tools;
+using System.Text;
+using System.Text.Json;
 
 namespace CustomToolsAPI.Controllers
 {
@@ -11,9 +13,12 @@ namespace CustomToolsAPI.Controllers
     {
         private readonly IWeatherService weatherService;
 
-        public OpalToolsController(IWeatherService weatherService)
+        private readonly IGoogleGeminiService googleGeminiService;
+
+        public OpalToolsController(IWeatherService weatherService, IGoogleGeminiService googleGeminiService)
         {
             this.weatherService = weatherService;
+            this.googleGeminiService = googleGeminiService;
         }
 
         [HttpGet]
@@ -90,6 +95,35 @@ namespace CustomToolsAPI.Controllers
                 weatherResponse.Main?.Humidity,
                 weatherResponse.Weather?.FirstOrDefault()?.Description
             });
+        }
+
+        [OpalTool("custom_google_gemini")]
+        [HttpPost("CustomGoogleGemini")]
+        public async Task<object> GoogleGeminiInfo([FromBody] string prompt)
+        {
+            object request = new
+            {
+                contents = new[]
+                {
+                    new
+                    {
+                       parts = new []
+                        {
+                            new {text = prompt}
+                        }
+                    }
+                }
+            };
+
+            string response = await googleGeminiService.GetResponseFromGoogleGeminiAsync(request);
+            
+            if (string.IsNullOrEmpty(response)) return NoContent();
+
+            JsonDocument doc = JsonDocument.Parse(response);
+
+            string text = doc.RootElement.GetProperty("candidates")[0].GetProperty("content").GetProperty("parts")[0].GetProperty("text").GetString()!;
+            
+            return Ok(text);
         }
     }
 }
